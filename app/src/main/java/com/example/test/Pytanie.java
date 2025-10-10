@@ -5,12 +5,14 @@ public class Pytanie {
     private int idObrazka;
     private boolean odpowiedz;
     private String podpowiedz;
+    private boolean CzyDobraOdpowiedz;
 
     public Pytanie(String trescPytania, int idObrazka, boolean odpowiedz, String podpowiedz) {
         this.trescPytania = trescPytania;
         this.idObrazka = idObrazka;
         this.odpowiedz = odpowiedz;
         this.podpowiedz = podpowiedz;
+        CzyDobraOdpowiedz = false;
     }
 
     public String getTrescPytania() {
@@ -43,5 +45,9 @@ public class Pytanie {
 
     public void setPodpowiedz(String podpowiedz) {
         this.podpowiedz = podpowiedz;
+    }
+
+    public void setCzyDobraOdpowiedz(boolean czyDobraOdpowiedz) {
+        CzyDobraOdpowiedz = czyDobraOdpowiedz;
     }
 }

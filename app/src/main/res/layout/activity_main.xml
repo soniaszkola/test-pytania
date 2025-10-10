@@ -15,6 +15,7 @@
         app:srcCompat="@drawable/morze" />
 
     <TextView
+        android:id="@+id/textViewPytanie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbarSize="24sp"
@@ -32,13 +33,6 @@
             android:layout_weight="1"
             android:text="Tak" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
-
         <Button
             android:id="@+id/buttonNie"
             android:layout_width="wrap_content"
@@ -49,13 +43,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonPodpowiedz"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Podpowiedź" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonNastepne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Następne pytanie" />

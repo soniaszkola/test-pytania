@@ -7,12 +7,26 @@ public class Pytanie {
     private String podpowiedz;
     private boolean CzyDobraOdpowiedz;
 
+    private boolean czWykorzystanaPodpowiedz;
     public Pytanie(String trescPytania, int idObrazka, boolean odpowiedz, String podpowiedz) {
         this.trescPytania = trescPytania;
         this.idObrazka = idObrazka;
         this.odpowiedz = odpowiedz;
         this.podpowiedz = podpowiedz;
         CzyDobraOdpowiedz = false;
+        czWykorzystanaPodpowiedz = false;
+    }
+
+    public boolean isCzWykorzystanaPodpowiedz() {
+        return czWykorzystanaPodpowiedz;
+    }
+
+    public void setCzWykorzystanaPodpowiedz(boolean czWykorzystanaPodpowiedz) {
+        this.czWykorzystanaPodpowiedz = czWykorzystanaPodpowiedz;
+    }
+
+    public boolean isCzyDobraOdpowiedz() {
+        return CzyDobraOdpowiedz;
     }
 
     public String getTrescPytania() {

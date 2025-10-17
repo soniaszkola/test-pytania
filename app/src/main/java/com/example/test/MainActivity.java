@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         buttonNie = findViewById(R.id.buttonNie);
         buttonTak = findViewById(R.id.buttonTak);
         imageView = findViewById(R.id.imageView);
-
+        pytania = Repozytorium.zwrocWszystkiePytania();
 
         buttonTak.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intencja = new Intent(MainActivity.this, PodpowiedzActivity.class);
                 // intencja(aktywna wiemy co i za pomoca jakiej aktywnosci) jawna, sa tez niejawne
                 //pokazPodpowiedz();
-                intencja.putExtra("KTÓRE PYTANIE", numerPytania);
+                intencja.putExtra("KTORE PYTANIE", numerPytania);
                 startActivity(intencja);
             }
         });
@@ -90,31 +90,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        pytania.add(new Pytanie(
-                "Czy na obrazie widać zachód słońca?",
-                R.drawable.morze,
-                true,
-                "To jest przejście nieba przez różne odcienie"));
-
-        pytania.add(new Pytanie(
-                "Czy na obrazku widać jakieś zwierzeta?",
-                R.drawable.morze1,
-                false,
-                "Na obrazku widać tylko różne kolory"));
-
-        pytania.add(new Pytanie(
-                "Czy na obrazku są latarnie morskie?",
-                R.drawable.morze2,
-                false,
-                "Na obrazku widać fale morrza"));
-
-        pytania.add(new Pytanie(
-                "Czy na plaży widać jakieś kamienie?",
-                R.drawable.morze3,
-                false,
-                "Plaża jest raczej piaszczysta"));
-
         wyswietlPytanie();
     }
 
@@ -135,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(udzielonaOdpowiedz == pytanie.isOdpowiedz()){
             Toast.makeText(this, "dobrze", Toast.LENGTH_SHORT).show();
+            pytanie.setCzyDobraOdpowiedz(true);
         }
         else{
             Toast.makeText(this, "zle", Toast.LENGTH_SHORT).show();
@@ -145,8 +121,13 @@ public class MainActivity extends AppCompatActivity {
     private int obliczIlePunktowZaTest(){
         int sumaPunktow = 0;
         for(Pytanie pytanie:pytania){
-            if(pytanie.isOdpowiedz()){
-                sumaPunktow = sumaPunktow + 1;
+            if(pytanie.isCzyDobraOdpowiedz()){
+                if(pytanie.isCzWykorzystanaPodpowiedz()) {
+                    sumaPunktow = sumaPunktow + 1;
+                }
+                else{
+                    sumaPunktow = sumaPunktow + 10;
+                }
             }
         }
         return sumaPunktow;
